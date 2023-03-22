@@ -110,7 +110,13 @@ public class ActivityEditar extends AppCompatActivity implements LocationListene
                 String numero = telefono.getText().toString();
                 String lat = txtLatitud.getText().toString();
                 String longi = txtLongitud.getText().toString();
-                actualizarContacto(id, nombreContacto, numero, lat, longi);
+
+                if(nombreContacto.isEmpty() || numero.isEmpty() || lat.isEmpty() || longi.isEmpty()){
+                    Toast.makeText(ActivityEditar.this, "INGRESE TODOS LOS CAMPOS",Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    actualizarContacto(id, nombreContacto, numero, lat, longi);
+                }
             }
         });
 

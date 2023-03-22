@@ -94,12 +94,18 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                 String numero = telefono.getText().toString();
                 String lat = txtLatitud.getText().toString();
                 String longi = txtLongitud.getText().toString();
-                crearContacto(nombreContacto, numero, lat, longi, currentPhotoPath);
+
+                if(nombreContacto.isEmpty() || numero.isEmpty() || lat.isEmpty() || longi.isEmpty()){
+                    Toast.makeText(MainActivity.this, "INGRESE TODOS LOS CAMPOS",Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    crearContacto(nombreContacto, numero, lat, longi, currentPhotoPath);
+                }
             }
         });
 
         getLocation();
-    }
+}
 
     @SuppressLint("MissingPermission")
     public void retrieveLocation() {
